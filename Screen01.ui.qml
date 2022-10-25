@@ -32,7 +32,6 @@ Rectangle {
 
     Text {
         id: textHeart
-        visible: heartVisible
         x: 112
         y: 130
         width: 259
