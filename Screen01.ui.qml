@@ -14,6 +14,7 @@ Rectangle {
     height: Constants.height
     color: "#404040"
     property int bpmValue: 0
+    property bool heartVisible: true
 
     Text {
         id: textTitle
@@ -24,7 +25,6 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         font.pointSize: 24
-        font.family: "Verdana"
         anchors.verticalCenterOffset: -194
         anchors.horizontalCenterOffset: 0
         anchors.centerIn: parent
@@ -32,6 +32,7 @@ Rectangle {
 
     Text {
         id: textHeart
+        visible: heartVisible
         x: 112
         y: 130
         width: 259
@@ -49,13 +50,11 @@ Rectangle {
         y: 97
         width: 264
         height: 224
-        color: (textBpmValue.bpm < 80) ? "white" : "orange"
-        text: textBpmValue.bpm
+        color: (bpmValue < 80) ? "white" : "orange"
+        text: bpmValue
         font.pixelSize: 144
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        property int bpm: 0
-        font.family: "Arial"
 
         Text {
             id: text1
