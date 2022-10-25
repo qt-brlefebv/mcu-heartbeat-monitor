@@ -13,6 +13,7 @@ Rectangle {
     width: Constants.width
     height: Constants.height
     color: "#404040"
+    property bool heartVisible: true
     property int bpmValue: 0
 
     Text {
@@ -36,6 +37,7 @@ Rectangle {
         y: 130
         width: 259
         height: 236
+        visible: heartVisible
         color: "#fc0707"
         text: qsTr("♥")
         font.pixelSize: 256
@@ -49,7 +51,7 @@ Rectangle {
         y: 97
         width: 264
         height: 224
-        color: (textBpmValue.bpm < 80) ? "white" : "orange"
+        color: (textBpmValue.bpm < 85) ? "white" : "orange"
         text: textBpmValue.bpm
         font.pixelSize: 144
         horizontalAlignment: Text.AlignHCenter
