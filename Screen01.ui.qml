@@ -13,6 +13,7 @@ Rectangle {
     width: Constants.width
     height: Constants.height
     color: "#404040"
+    property int bpmValue: 0
 
     Text {
         id: textTitle
