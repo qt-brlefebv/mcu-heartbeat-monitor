@@ -37,6 +37,7 @@ Rectangle {
         y: 130
         width: 259
         height: 236
+        visible: heartVisible
         color: "#fc0707"
         text: qsTr("♥")
         font.pixelSize: 256
