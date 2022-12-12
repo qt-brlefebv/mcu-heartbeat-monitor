@@ -6,15 +6,17 @@ Item {
     height: Constants.height
 
     Screen01 {
-        id: screen01
+        id: screen
     }
 
     Timer {
-        id: blinkTimer
+        id: blinker
         interval: 200
         running: false
         repeat: false
-        onTriggered: screen01.heartVisible = true;
+        onTriggered: {
+            screen.heartVisible = true
+        }
     }
 
     Timer {
@@ -22,14 +24,19 @@ Item {
         interval: 1000
         running: true
         repeat: true
-        onTriggered: { screen01.heartVisible = false; blinkTimer.start(); }
+        onTriggered: {
+            screen.heartVisible = false
+            blinker.start()
+        }
     }
 
     Timer {
-        interval: 2000
+        id: bpmTimer
+        interval: 1250
         running: true
         repeat: true
-
-        onTriggered: screen01.bpmValue = HardwareInterface.getCurrentBpm()
+        onTriggered: {
+            screen.bpmValue = HardwareInterface.readBpm()
+        }
     }
 }
