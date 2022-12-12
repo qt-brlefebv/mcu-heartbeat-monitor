@@ -24,8 +24,6 @@ else()
     set(QUL_FONTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/fonts,${QUL_FONTS_DIR}")
 endif()
 
-target_sources(HeartbeatMonitor PRIVATE HardwareInterface.h HardwareInterface.cpp)
-
 # Using recurse search to find image files in project directory
 # Excluding MCUDefaultStyle because it exists for compatibility purposes with QDS
 file(GLOB_RECURSE imgSources "*.png" "*.svg" "*.jpg" "*.jpeg")
@@ -34,6 +32,8 @@ list(FILTER imgSources EXCLUDE REGEX ".*/MCUDefaultStyle/.*")
 if(imgSources)
     qul_add_resource(HeartbeatMonitor FILES ${imgSources})
 endif()
+
+target_sources(HeartbeatMonitor PRIVATE HardwareInterface.h HardwareInterface.cpp)
 
 # Registering singletons as qml module
 qul_add_qml_module(ConstantsModule
