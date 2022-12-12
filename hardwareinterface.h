@@ -6,12 +6,13 @@
 class HardwareInterface : public Qul::Singleton<HardwareInterface>
 {
 public:
-    friend struct Qul::Singleton<HardwareInterface>;
-    int getCurrentBpm();
+    int readBpm();
+
+    friend class Qul::Singleton<HardwareInterface>;
 private:
     HardwareInterface();
-    HardwareInterface(const HardwareInterface &);
-    HardwareInterface &operator=(const HardwareInterface &);
+    HardwareInterface(const HardwareInterface&);
+    HardwareInterface &operator=(const HardwareInterface&);
 };
 
 #endif // HARDWAREINTERFACE_H
